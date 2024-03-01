@@ -123,3 +123,9 @@ To Delete the first node from a singly linked list, we have to change the head o
 To Delete the last node from a singly linked list, we have to traverse the list to reach the last node. We have to keep track of the previous node of the last node. The next pointer of the previous node is set to None, which indicates the end of the list.
 
 To delete any intermediary node, we need two pointers similar to the case when we learned to delete the last node; in other words, the current pointer and the prev pointer. Once we reach the node that is to be deleted, the desired node can be deleted by making the previous node point to the next node of the node that is to be deleted.
+
+## Doubly linked lists
+
+A doubly linked list is a linked list that consists of a set of sequentially linked records called nodes. Each node contains two fields, called links, that are references to the previous and to the next node in the sequence of nodes. Doubly linked lists can be traversed in both forward and backward directions.
+
+![alt text](image-2.png)
