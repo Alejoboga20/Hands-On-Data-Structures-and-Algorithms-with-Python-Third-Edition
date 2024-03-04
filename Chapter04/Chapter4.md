@@ -129,3 +129,7 @@ To delete any intermediary node, we need two pointers similar to the case when w
 A doubly linked list is a linked list that consists of a set of sequentially linked records called nodes. Each node contains two fields, called links, that are references to the previous and to the next node in the sequence of nodes. Doubly linked lists can be traversed in both forward and backward directions.
 
 ![alt text](image-2.png)
+
+## Circular linked lists
+
+A circular linked list is a linked list in which the last node points to the first node. This forms a circular loop. All the nodes point to the next node. This can be implemented with singly linked lists, doubly linked lists, or any other variation of linked lists.
