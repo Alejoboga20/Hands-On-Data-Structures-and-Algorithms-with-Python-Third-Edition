@@ -19,3 +19,36 @@ Balanced Binary Tree:
 
 Unbalanced Binary Tree:
 ![alt text](image-2.png)
+
+To create a node in a binary tree, we need to define a class for the node. The class will have three attributes: the data, the left child, and the right child. The left and right child will be initialized as None, as they will be empty initially.
+
+```python
+class Node:
+    def __init__(self, data):
+        self.data = data
+        self.left = None
+        self.right = None
+```
+
+## Tree Traversal
+
+There are three ways to traverse a tree:
+
+- Inorder Traversal
+- Preorder Traversal
+- Postorder Traversal
+
+### Inorder Traversal
+
+In this traversal, the left subtree is visited first, then the root, and finally the right subtree. The left subtree is visited recursively, and then the right subtree is visited recursively.
+
+```python
+def inorder_traversal(node):
+    if node.get_left_node() is not None:
+        inorder_traversal(node.get_left_node())
+
+    print(node.get_data(), end=' ')
+
+    if node.get_right_node() is not None:
+        inorder_traversal(node.get_right_node())
+```
