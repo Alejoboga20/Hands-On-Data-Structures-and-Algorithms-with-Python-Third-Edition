@@ -52,3 +52,18 @@ def inorder_traversal(node):
     if node.get_right_node() is not None:
         inorder_traversal(node.get_right_node())
 ```
+
+### Preorder Traversal
+
+In this traversal, the root is visited first, then the left subtree, and finally the right subtree. The root is visited recursively, and then the left subtree is visited recursively.
+
+```python
+def preorder_traversal(node):
+    print(node.get_data(), end=' ')
+
+    if node.get_left_node() is not None:
+        preorder_traversal(node.get_left_node())
+
+    if node.get_right_node() is not None:
+        preorder_traversal(node.get_right_node())
+```
