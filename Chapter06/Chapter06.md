@@ -67,3 +67,48 @@ def preorder_traversal(node):
     if node.get_right_node() is not None:
         preorder_traversal(node.get_right_node())
 ```
+
+### Postorder Traversal
+
+In this traversal, the left subtree is visited first, then the right subtree, and finally the root. The left subtree is visited recursively, and then the right subtree is visited recursively.
+
+```python
+def postorder_traversal(node):
+    if node.get_left_node() is not None:
+        postorder_traversal(node.get_left_node())
+
+    if node.get_right_node() is not None:
+        postorder_traversal(node.get_right_node())
+
+    print(node.get_data(), end=' ')
+```
+
+### Level Order Traversal
+
+In this traversal, the nodes are visited level by level, starting from the root. The nodes at each level are visited from left to right. This traversal is also known as breadth-first search and it uses a queue to store the nodes at each level.
+
+![alt text](image-3.png)
+
+```python
+from collections import deque
+
+def level_order_traversal(root_node):
+    list_of_nodes = []
+    traversal_queue = deque([root_node])
+    while len(traversal_queue) > 0:
+        node = traversal_queue.popleft()
+        list_of_nodes.append(node.data)
+        if node.left_child:
+            traversal_queue.append(node.left_child)
+            if node.right_child:
+                traversal_queue.append(node.right_child)
+    return list_of_nodes
+print(level_order_traversal(n1))
+```
+
+The following are some important applications of binary trees:
+
+1. Binary trees as expression trees are used in compilers
+2. It is also used in Huffman coding in data compression
+3. Binary search trees are used for efficient searching, insertion, and deletion of a list of items
+4. Priority Queue (PQ), which is used for finding and deleting minimum or maximum items in a collection of elements in logarithm time in the worst case
