@@ -112,3 +112,13 @@ The following are some important applications of binary trees:
 2. It is also used in Huffman coding in data compression
 3. Binary search trees are used for efficient searching, insertion, and deletion of a list of items
 4. Priority Queue (PQ), which is used for finding and deleting minimum or maximum items in a collection of elements in logarithm time in the worst case
+
+## Expression Trees
+
+An expression tree is a binary tree in which each internal node corresponds to an operator, and each leaf node corresponds to an operand. The leaves of an expression tree are the operands, and the other nodes are the operators. The expression tree is used to represent expressions in a tree form. The expression tree can be used to evaluate the expression, and it can also be used to convert the infix expression to postfix and prefix expressions.
+
+The **infix** expression is the expression in which the operator is between the operands, such as `a + b`. The **postfix** expression is the expression in which the operator is after the operands, such as `ab+`. The **prefix** (or polish) expression is the expression in which the operator is before the operands, such as `+ab`.
+
+In-order traversal of the expression tree gives the infix expression, and the pre-order traversal of the expression tree gives the prefix expression. The post-order traversal of the expression tree gives the postfix expression.
+
+## Binary Search Tree
