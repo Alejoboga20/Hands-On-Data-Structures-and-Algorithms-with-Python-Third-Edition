@@ -122,3 +122,11 @@ The **infix** expression is the expression in which the operator is between the 
 In-order traversal of the expression tree gives the infix expression, and the pre-order traversal of the expression tree gives the prefix expression. The post-order traversal of the expression tree gives the postfix expression.
 
 ## Binary Search Tree
+
+A binary tree is called a binary search tree (BST) if the following conditions are satisfied:
+
+- The left subtree of a node contains only nodes with keys less than (or equal to) the node's key.
+- The right subtree of a node contains only nodes with keys greater than the node's key.
+- The left and right subtree must also be a binary search tree.
+
+![alt text](image-4.png)
