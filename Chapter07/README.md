@@ -28,14 +28,23 @@ We first append (insert it in the last position) the element to the heap list an
 We need a helper method to swap the elements in the heap list.
 
 ```python
-def arrange(self, k):
-  while k // 2 > 0: # while parent exists
-    if self.heap[k] < self.heap[k // 2]:
-      self.heap[k], self.heap[k // 2] = self.heap[k // 2], self.heap[k]
-    k //= 2
+class MinHeap:
+  def __init__(self):
+    self.heap = [0]
+    self.size = 0
 
-def insert(self, item):
-  self.heap.append(item)
-  self.size += 1
-  self.arrange(self.size)
+  def arrange(self, k):
+    while k // 2 > 0: # while parent exists
+      if self.heap[k] < self.heap[k // 2]:
+        self.heap[k], self.heap[k // 2] = self.heap[k // 2], self.heap[k]
+      k //= 2
+
+  def insert(self, item):
+    self.heap.append(item)
+    self.size += 1
+    self.arrange(self.size)
+
+h = MinHeap()
+  for i in (4, 8, 7, 2, 9, 10, 5, 1, 3, 6):
+    h.insert(i)
 ```
