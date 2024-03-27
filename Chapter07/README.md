@@ -48,3 +48,11 @@ h = MinHeap()
   for i in (4, 8, 7, 2, 9, 10, 5, 1, 3, 6):
     h.insert(i)
 ```
+
+### Deleting an element
+
+One case is to delete the root node. In this case, we remove the root node and replace it with the last node in the heap. Then we call the `heapify` method to maintain the heap property.
+
+Another case is to delete any other node. In this case, we first find the index of the element to be deleted. We then replace the element with the last element in the heap and call the `heapify` method to maintain the heap property.
+
+![alt text](image.png)
