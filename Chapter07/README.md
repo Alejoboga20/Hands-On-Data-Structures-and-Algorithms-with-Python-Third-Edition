@@ -56,3 +56,8 @@ One case is to delete the root node. In this case, we remove the root node and r
 Another case is to delete any other node. In this case, we first find the index of the element to be deleted. We then replace the element with the last element in the heap and call the `heapify` method to maintain the heap property.
 
 ![alt text](image.png)
+
+## Priority Queues
+
+A priority queue is a data structure that stores elements in a way that they can be retrieved based on their priority. The element with the highest priority is retrieved first. Priority queues are used in many applications, such as task scheduling, data compression, and graph algorithms.
+If two data elements have the same priority, they are served according to their order in the queue.
