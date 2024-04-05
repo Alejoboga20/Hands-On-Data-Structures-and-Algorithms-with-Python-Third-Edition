@@ -61,3 +61,40 @@ Another case is to delete any other node. In this case, we first find the index 
 
 A priority queue is a data structure that stores elements in a way that they can be retrieved based on their priority. The element with the highest priority is retrieved first. Priority queues are used in many applications, such as task scheduling, data compression, and graph algorithms.
 If two data elements have the same priority, they are served according to their order in the queue.
+In **Priority Queues**, the elements are stored in a way that the element with the highest priority is served first. The priority queue can be implemented using heaps.
+
+```python
+class Node:
+  def __init__(self, info, priority):
+    self.info = info
+    self.priority = priority
+
+class PriorityQueue:
+  def __init__(self):
+    self.queue = []
+```
+
+To insert we'll assume that the element with the highest priority has the lowest value. We'll insert the element in the queue list in a way that the element with the highest priority is at the beginning of the list.
+
+```python
+def show(self):
+  for x in self.queue:
+    print(f"{x.info} - {x.priority}")
+
+def insert(self, node):
+  if len(self.queue) == 0:
+    self.queue.append(node)
+  else:
+    for i in range(len(self.queue)):
+      if self.queue[i].priority >= node.priority:
+        if i == len(self.queue) - 1:
+          self.queue.insert(i + 1, node)
+        else:
+          continue
+      else:
+        self.queue.append(node)
+        return True
+
+def delete(self):
+  x = self.queue.pop(0)
+```
