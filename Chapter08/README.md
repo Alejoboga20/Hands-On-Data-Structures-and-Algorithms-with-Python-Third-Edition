@@ -100,3 +100,19 @@ class HashTable:
     self.size = New_Hash_Table.size
     self.slots = New_Hash_Table.slots
 ```
+
+### Retrieving an Element
+
+To retrieve an element from the hash table, we need to compute the hash of the key and then check if the key is in the slot. If the key is not in the slot, we need to move to the next slot until we find the key or an empty slot. If we use linear probing, we need to increment the index by 1 until we find the key or an empty slot.
+
+```python
+def get(self, key):
+    h = self._hash(key)    # computed hash for the given key
+    while self.slots[h] != None:
+        if self.slots[h].key == key:
+            return self.slots[h].value
+        h = (h+ 1) % self.size
+    return None
+```
+
+### Implementing a Hash Table as a Dictionary
