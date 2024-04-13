@@ -30,3 +30,73 @@ def myhash(s):
 There are two main ways to resolve collisions in a hash table: chaining and open addressing.
 
 ### Open Addressing
+
+Open Addressing is a technique of collision resolution. In open addressing, all elements are stored in the hash table itself. When a new element is to be inserted, the hash function is computed, and if the bucket is already occupied, the algorithm will try to find the next available slot in the hash table. There are different ways to find the next available slot, such as linear probing, quadratic probing, and double hashing.
+
+**Linear Probing**: In linear probing, if the bucket is already occupied, the algorithm will try to find the next available slot by incrementing the index by 1 until an empty slot is found. The problem with linear probing is that it can cause clustering, causing the hash table to become inefficient by having so many elements in the same bucket.
+
+- Implementing a Hash Table with Linear Probing
+
+```python
+class HashItem:
+  def __init__(self, key, value):
+    self.key = key
+    self.value = value
+
+class HashTable:
+  def __init__(self):
+    self.size = 256 # Set the size of the hash table to 256
+    self.slots = [None for i in range(self.size)] # Create an array of size 256
+    self.count = 0 # Set the initial count of elements to zero
+
+    def _hash(self, key):
+          mult = 1
+          hv = 0
+          for ch in key:
+              hv += mult * ord(ch)
+              mult += 1
+          return hv % self.size
+    def put(self, key, value):
+        item = HashItem(key, value) # Create a new HashItem
+        h = self._hash(key) # Get the hash of the key
+
+        while self.slots[h] != None: # If the slot is not empty
+            if self.slots[h].key == key: # If the key is already in the slot
+                break
+            h = (h + 1) % self.size # Move to the next slot
+        if self.slots[h] == None: # If the slot is empty
+            self.count += 1 # Increment the count
+        self.slots[h] = item # Put the item in the slot
+        self.check_growth() # Check if the hash table needs to grow
+```
+
+We may need to grow the hash table if the load factor exceeds a certain threshold. The load factor is the ratio of the number of elements to the size of the hash table. If the load factor exceeds a certain threshold, we need to grow the hash table to avoid clustering. **Load factor = number of elements / size of the hash table**. We need to define the max load factor threshold and the growth factor. The growth factor is the factor by which the hash table will grow when it needs to be resized.
+
+```python
+class HashTable:
+  def __init__(self):
+    self.size = 256
+    self.slots = [None for i in range(self.size)]
+    self.count = 0
+    self.MAXLOADFACTOR = 0.75 # Set the max load factor to 0.75
+    self.GROWTH_FACTOR = 2 # Set the growth factor to 2
+
+  def check_growth(self):
+    loadfactor = self.count / self.size
+    if loadfactor > self.MAXLOADFACTOR:
+        print("Load factor before growing the hash table", self.count / self.size )
+        self.growth()
+        print("Load factor after growing the hash table", self.count / self.size )
+
+  def growth(self):
+    New_Hash_Table = HashTable()
+    New_Hash_Table.size = self.GROWTH_FACTOR * self.size
+    New_Hash_Table.slots = [None for i in range(New_Hash_Table.size)]
+
+    for i in range(self.size):
+      if self.slots[i] != None:
+        New_Hash_Table.put(self.slots[i].key, self.slots[i].value)
+
+    self.size = New_Hash_Table.size
+    self.slots = New_Hash_Table.slots
+```
