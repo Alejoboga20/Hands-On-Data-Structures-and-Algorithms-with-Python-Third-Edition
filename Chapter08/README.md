@@ -116,3 +116,10 @@ def get(self, key):
 ```
 
 ### Implementing a Hash Table as a Dictionary
+
+```python
+def __setitem__(self, key, value):
+    self.put(key, value)
+def __getitem__(self, key):
+    return self.get(key)
+```
