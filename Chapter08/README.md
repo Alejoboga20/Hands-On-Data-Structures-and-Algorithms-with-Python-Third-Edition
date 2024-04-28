@@ -123,3 +123,7 @@ def __setitem__(self, key, value):
 def __getitem__(self, key):
     return self.get(key)
 ```
+
+## Symbol Tables
+
+Symbol tables are used by compilers and interpreters to keep track of the symbols and different entities, such as objects, classes, variables, and function names, that have been declared in a program. Symbol tables are often built using hash tables since it is important to efficiently retrieve a symbol from the table.
