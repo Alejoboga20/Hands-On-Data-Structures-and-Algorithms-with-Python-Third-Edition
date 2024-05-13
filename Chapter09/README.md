@@ -56,3 +56,9 @@ for edge in edges_list:
 
 print(adjacency_matrix)
 ```
+
+## Graph Traversal
+
+Graph traversal is the process of visiting all the vertices in a graph in a systematic way. There are two main algorithms for graph traversal: depth-first search (DFS) and breadth-first search (BFS). These algorithms are used to explore the vertices and edges of a graph and can be used to solve many graph-related problems.
+
+### Breadth-First Search (BFS)
