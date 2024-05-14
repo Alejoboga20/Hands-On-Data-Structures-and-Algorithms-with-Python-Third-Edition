@@ -62,3 +62,41 @@ print(adjacency_matrix)
 Graph traversal is the process of visiting all the vertices in a graph in a systematic way. There are two main algorithms for graph traversal: depth-first search (DFS) and breadth-first search (BFS). These algorithms are used to explore the vertices and edges of a graph and can be used to solve many graph-related problems.
 
 ### Breadth-First Search (BFS)
+
+Breadth-first search is an algorithm that traverses a graph level by level. It starts at a given vertex and explores all the vertices at the present level before moving on to the next level. BFS uses a queue to keep track of the vertices that need to be explored. The algorithm works as follows:
+
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+![alt text](image-6.png)
+
+```python
+from collections import deque
+# Create the graph using an adjacency list with a dictionary
+graph = dict()
+graph['A'] = ['B', 'G', 'D']
+graph['B'] = ['A', 'F', 'E']
+graph['C'] = ['F', 'H']
+graph['D'] = ['F', 'A']
+graph['E'] = ['B', 'G']
+graph['F'] = ['B', 'D', 'C']
+graph['G'] = ['A', 'E']
+graph['H'] = ['C']
+
+def breadth_first_search(graph, root):
+    visited_vertices = list()
+    graph_queue = deque([root])
+    visited_vertices.append(root)
+    node = root
+    while len(graph_queue) > 0:
+        node = graph_queue.popleft()
+        adj_nodes = graph[node]
+        remaining_elements = set(adj_nodes).difference(set(visited_vertices))
+        if len(remaining_elements) > 0:
+             for elem in sorted(remaining_elements):
+                 visited_vertices.append(elem)
+                 graph_queue.append(elem)
+    return visited_vertices
+```
+
+The time complexity of BFS is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges in the graph.
