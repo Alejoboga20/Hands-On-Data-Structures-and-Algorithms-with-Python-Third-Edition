@@ -100,3 +100,47 @@ def breadth_first_search(graph, root):
 ```
 
 The time complexity of BFS is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges in the graph.
+
+### Depth-First Search (DFS)
+
+Depth-first search is an algorithm that traverses a graph by exploring as far as possible along each branch before backtracking. It starts at a given vertex and explores as far as possible along each branch before backtracking. DFS uses a stack to keep track of the vertices that need to be explored.
+
+![alt text](image-7.png)
+![alt text](image-8.png)
+
+```python
+graph = dict()
+graph['A'] = ['B', 'S']
+graph['B'] = ['A']
+graph['S'] = ['A','G','C']
+graph['D'] = ['C']
+graph['G'] = ['S','F','H']
+graph['H'] = ['G','E']
+graph['E'] = ['C','H']
+graph['F'] = ['C','G']
+graph['C'] = ['D','S','E','F']
+
+def depth_first_search(graph, root):
+    visited_vertices = list()
+    graph_stack = list()
+    graph_stack.append(root)
+    node = root
+
+        while graph_stack:
+            if node not in visited_vertices:
+                visited_vertices.append(node)
+            adj_nodes = graph[node]
+            if set(adj_nodes).issubset(set(visited_vertices)):
+                graph_stack.pop()
+                if len(graph_stack) > 0:
+                    node = graph_stack[-1]
+                continue
+            else:
+                remaining_elements = set(adj_nodes).difference(set(visited_vertices))
+            first_adj_node = sorted(remaining_elements)[0]
+            graph_stack.append(first_adj_node)
+            node = first_adj_node
+        return visited_vertices
+```
+
+The time complexity of DFS is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges in the graph when we use an adjacency list to represent the graph. If we use an adjacency matrix to represent the graph, the time complexity of DFS is `O(V^2)`.
