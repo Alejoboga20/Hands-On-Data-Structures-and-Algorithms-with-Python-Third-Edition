@@ -144,3 +144,13 @@ def depth_first_search(graph, root):
 ```
 
 The time complexity of DFS is `O(V + E)`, where `V` is the number of vertices and `E` is the number of edges in the graph when we use an adjacency list to represent the graph. If we use an adjacency matrix to represent the graph, the time complexity of DFS is `O(V^2)`.
+
+## Other Graph Algorithms
+
+A graph is a powerful data structure that can be used to solve many real-world problems. There are many algorithms that can be applied to graphs, such as shortest path algorithms, minimum spanning tree algorithms, and more. Here are some of the most common graph algorithms:
+
+### Minimum Spanning Tree
+
+A minimum spanning tree (MST) is a subgraph of a graph that is a tree and connects all the vertices of the graph with the minimum possible total edge weight. There are many algorithms to find the minimum spanning tree of a graph, such as Kruskal's algorithm and Prim's algorithm.
+
+![alt text](image-9.png)
