@@ -154,3 +154,23 @@ A graph is a powerful data structure that can be used to solve many real-world p
 A minimum spanning tree (MST) is a subgraph of a graph that is a tree and connects all the vertices of the graph with the minimum possible total edge weight. There are many algorithms to find the minimum spanning tree of a graph, such as Kruskal's algorithm and Prim's algorithm.
 
 ![alt text](image-9.png)
+
+### Kruskal's Algorithm
+
+Kruskal's algorithm is a greedy algorithm that finds the minimum spanning tree of a graph. The algorithm works by sorting the edges of the graph by weight and adding the edges one by one to the minimum spanning tree, as long as the edge does not create a cycle in the tree. This algorithm is used to solve the problem of traveling salesman, network design, and more.
+
+Time complexity: `O(E log E)`, where `E` is the number of edges in the graph.
+
+1. Initialize an empty MST (M) with zero edges
+2. Sort all the edges according to their weights
+3. For each edge from the sorted list, we add them one by one to the MST (M) in such a way that it does not form a cycle
+
+### Prim's Algorithm
+
+Prim's algorithm is another greedy algorithm that finds the minimum spanning tree of a graph. The algorithm works by starting at a vertex and adding the minimum weight edge that connects the tree to a new vertex.
+
+Time complexity: `O(E = V log V)`, where `V` is the number of vertices in the graph and E the edges.
+
+1. Create a dictionary that holds all the edges and their weights.
+2. Get the edges, one by one, that have the lowest cost from the dictionary and grow the tree in such a way that the cycle is not formed
+3. Repeat step 2 until all the vertices are visited
