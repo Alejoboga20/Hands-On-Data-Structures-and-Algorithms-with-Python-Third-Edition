@@ -133,3 +133,22 @@ def binary_search_recursive(ordered_list, first_element_index, last_element_inde
         else:
             return mid_point
 ```
+
+## Exponential Search
+
+The exponential search is used when we have large arrays and we don't know the size of the array. The algorithm works by finding the range in which the target element is located and then performing a binary search within that range.
+
+We implement jumps of size 2^i until we find a value greater than the target element. Then we perform a binary search within the range of the last jump.
+
+```python
+def exponential_search(ordered_list, search_value):
+  if (ordered_list[0] == search_value):
+    return 0
+  index = 1
+
+  while index < len(order_list) and ordered_list[index] <= search_value:
+    index = index * 2
+
+  return binary_search_recursive(ordered_list, index/2, min(index, len(ordered_list)), search_value)
+
+```
