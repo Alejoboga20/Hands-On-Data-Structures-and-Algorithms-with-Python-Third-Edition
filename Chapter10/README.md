@@ -65,14 +65,19 @@ def jump_search(ordered_list, item):
 
     while i != len(ordered_list)-1 and ordered_list[i] <= item:
         print("Block under consideration - {}".format(ordered_list[i: i+block_size]))
-        if i+ block_size > len(ordered_list):
+
+        if i + block_size > len(ordered_list):
             block_size =  len(ordered_list) - i
-            block_list = ordered_list[i: i+block_size]
+            block_list = ordered_list[i: i + block_size]
+
             j = search_ordered(block_list, item)
+
             if j == -1:
                 print("Element not found")
                 return
+
             return i + j
+
         if ordered_list[i + block_size -1] == item:
             return i + block_size - 1
         elif ordered_list[i + block_size - 1] > item:
