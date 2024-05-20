@@ -37,3 +37,55 @@ def search(ordered_list, search_term):
 ```
 
 Time complexity of this algorithm is `O(n)`.
+
+## Jump Search
+
+Jump search is an algorithm that searches for an element in a sorted list by jumping ahead by a fixed number of steps. The algorithm works by dividing the list into blocks of equal size and then jumping ahead by a fixed number of steps until the target element is found or the end of the list is reached.
+
+Steps:
+
+1. Set the block size to √n.
+2. Jump ahead by the block size until the target element is found or the end of the list is reached.
+
+The next steps depend on the sorting used over the array
+
+3. If the search value is less than the last element of the block, we perform a linear search within the block.
+4. If the search value is greater than the last element of the block, we jump ahead by another block size.
+5. If the search term is found, return the index of the element in the list. If the search term is not found, return `None`.
+
+![alt text](image.png)
+
+```python
+import math
+
+def jump_search(ordered_list, item):
+    list_size = len(ordered_list) # n
+    block_size = int(math.sqrt(list_size)) # m
+    i = 0
+
+    while i != len(ordered_list)-1 and ordered_list[i] <= item:
+        print("Block under consideration - {}".format(ordered_list[i: i+block_size]))
+        if i+ block_size > len(ordered_list):
+            block_size =  len(ordered_list) - i
+            block_list = ordered_list[i: i+block_size]
+            j = search_ordered(block_list, item)
+            if j == -1:
+                print("Element not found")
+                return
+            return i + j
+        if ordered_list[i + block_size -1] == item:
+            return i + block_size - 1
+        elif ordered_list[i + block_size - 1] > item:
+            block_array = ordered_list[i: i + block_size - 1]
+            j = search_ordered(block_array, item)
+            if j == -1:
+                print("Element not found")
+                return
+            return i + j
+        i += block_size
+```
+
+The worst-case time complexity of this algorithm is `n/m` where `n` is the number of elements in the list and `m` is the block size.
+If the block size is set to `√n`, the time complexity of the algorithm is `O(√n)`.
+
+## Binary Search
