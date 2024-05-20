@@ -94,3 +94,42 @@ The worst-case time complexity of this algorithm is `n/m` where `n` is the numbe
 If the block size is set to `√n`, the time complexity of the algorithm is `O(√n)`.
 
 ## Binary Search
+
+Binary search is an algorithm that searches for an element in a sorted list by repeatedly dividing the list in half. The algorithm works by comparing the target element with the middle element of the list. If the target element is equal to the middle element, the algorithm returns the index of the middle element. If the target element is less than the middle element, the algorithm searches the left half of the list. If the target element is greater than the middle element, the algorithm searches the right half of the list. The algorithm continues to divide the list in half until the target element is found or the end of the list is reached.
+
+The time complexity of binary search is `O(log n)`.
+
+```python
+def binary_search_iterative(ordered_list, search_term):
+  list_size = len(ordered_list)
+  index_start = 0
+  index_end = list_size - 1
+
+  while index_start <= index_end:
+    index_middle = (index_start + index_end) / 2
+
+    if ordered_list[index_middle] === search_term:
+      return index_middle
+    if search_term > ordered_list[index_middle]:
+      index_start = index_middle + 1
+    else:
+      index_end = index_middle - 1
+
+  if index_start > index_end:
+    return None
+
+```
+
+```python
+def binary_search_recursive(ordered_list, first_element_index, last_element_index, term):
+    if (last_element_index < first_element_index):
+        return None
+    else:
+        mid_point = first_element_index + ((last_element_index - first_element_index) // 2)
+        if ordered_list[mid_point] > term:
+            return binary_search_recursive (ordered_list, first_element_index, mid_point-1, term)
+        elif ordered_list[mid_point] < term:
+            return binary_search_recursive (ordered_list, mid_point+1, last_element_index, term)
+        else:
+            return mid_point
+```
