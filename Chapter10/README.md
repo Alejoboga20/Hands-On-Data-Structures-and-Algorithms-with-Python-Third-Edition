@@ -23,3 +23,17 @@ def search(unordered_list, search_term):
 The time complexity of this algorithm is `O(n)`, where n is the number of elements in the list.
 
 ### Ordered linear search
+
+If the list is ordered, we can stop the search as soon as we find an element that is greater than the target element.
+
+```python
+def search(ordered_list, search_term):
+  for i, item in enumarate(ordered_list):
+    if search_term == item:
+      return i
+    if search_term < item:
+      return None
+  return None
+```
+
+Time complexity of this algorithm is `O(n)`.
