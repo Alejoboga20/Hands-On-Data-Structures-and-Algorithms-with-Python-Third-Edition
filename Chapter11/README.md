@@ -32,3 +32,21 @@ def bubble_sort(unordered_list):
 ```
 
 Time complexity of bubble sort is `O(n^2)`. Bubble sort is not recommended for large lists.
+
+## Insertion Sort Algorithm
+
+We maintain two sublists, one that is already sorted and another that is unsorted. We take elements from the unsorted sublist and insert them into the sorted sublist in the correct position. The process is repeated until the unsorted sublist is empty.
+
+```python
+def insertion_sort(unsorted_list):
+  list_length = len(unsorted_list)
+
+    for index in range(1, list_length):
+        search_index = index
+        insert_value = unsorted_list[index]
+
+        while search_index > 0 and unsorted_list[search_index-1] > insert_value :
+            unsorted_list[search_index] = unsorted_list[search_index-1]
+            search_index -= 1
+        unsorted_list[search_index] = insert_value
+```
