@@ -74,3 +74,13 @@ def selection_sort(unsorted_list):
 ```
 
 Time complexity of selection sort is `O(n^2)`. Selection sort is not recommended for large lists.
+
+## Quick Sort Algorithm
+
+Quick sort is a divide-and-conquer algorithm. It works by selecting a 'pivot' element from the array and partitioning the other elements into two sub-arrays according to whether they are less than or greater than the pivot. The sub-arrays are then sorted recursively.
+
+![alt text](image-3.png)
+![alt text](image-4.png)
+![alt text](image-5.png)
+
+After the first pass, the pivot element will be in its correct position. The process is repeated for the sub-arrays until the entire list is sorted.
