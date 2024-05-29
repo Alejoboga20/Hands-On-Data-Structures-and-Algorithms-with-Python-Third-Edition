@@ -50,3 +50,27 @@ def insertion_sort(unsorted_list):
             search_index -= 1
         unsorted_list[search_index] = insert_value
 ```
+
+## Selection Sort Algorithm
+
+Selection sort is an in-place comparison sorting algorithm. It divides the input list into two parts: the sublist of items already sorted and the sublist of items remaining to be sorted. The algorithm selects the smallest element from the unsorted sublist and swaps it with the leftmost unsorted element. The process is repeated until the unsorted sublist is empty.
+
+![alt text](image-1.png)
+
+```python
+def selection_sort(unsorted_list):
+  size_of_list = len(unsorted_list)
+
+  for i in range(size_of_list):
+    small = i
+
+    for j in range(i+1, size_of_list):
+
+      if unsorted_list[j] < unsorted_list[small]:
+        small = j
+        temp = unsorted_list[i]
+        unsorted_list[i] = unsorted_list[small]
+        unsorted_list[small] = temp
+```
+
+Time complexity of selection sort is `O(n^2)`. Selection sort is not recommended for large lists.
